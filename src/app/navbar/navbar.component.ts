@@ -28,7 +28,7 @@ export class NavbarComponent {
     const isLogout = window.confirm('Are you sure you want to logout?');
     if (isLogout) {
       this.apiService.logout();
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
     }
   }
 }
