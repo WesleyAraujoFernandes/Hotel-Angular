@@ -1,1 +1,37 @@
-<p>roomsearch works!</p>
+<p *ngIf="error" class="error">{{ error }}</p>
+<div class="container">
+  <!-- Check-in Date picker -->
+   <div class="field">
+    <label for="">Check-in Date</label>
+    <input
+      type="date"
+      [(ngModel)]="startDate"
+      [min]="minDate"
+      placeholder="Select check-in date"
+    />
+   </div>
+   <!-- Check-out Date picker -->
+   <div class="field">
+    <label for="">Check-out Date</label>
+    <input
+      type="date"
+      [(ngModel)]="endDate"
+      [min]="startDate"
+      placeholder="Select check-out date"
+    />
+   </div>
+   <!-- Room Type Selection -->
+   <div class="field">
+    <label for="">Room Type</label>
+    <select [(ngModel)]="roomType" name="roomType" required>
+      <option value="">Select a room type</option>
+      <option *ngFor="let type of roomTypes" [value]="type">
+        {{ type }}
+      </option>
+    </select>
+   </div>
+   <!-- Search Button -->
+   <div class="field">
+    <button (click)="handleSearch()" type="button">Search Rooms</button>
+   </div>
+</div>
